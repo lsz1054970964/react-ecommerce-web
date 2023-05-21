@@ -1,10 +1,47 @@
-import React from 'react'
-import { useFilterContext } from '../context/filter_context'
-import { BsFillGridFill, BsList } from 'react-icons/bs'
-import styled from 'styled-components'
+import React from "react";
+import { useFilterContext } from "../context/filter_context";
+import { BsFillGridFill, BsList } from "react-icons/bs";
+import styled from "styled-components";
 const Sort = () => {
-  return <h4>sort </h4>
-}
+  const {
+    filtered_products: products,
+    isGridView,
+    setGridView,
+    setListView,
+    sort,
+    updateSort,
+  } = useFilterContext();
+
+  return (
+    <Wrapper>
+      <div className="btn-container">
+        <button className={isGridView ? "active" : null} onClick={setGridView}>
+          <BsFillGridFill />
+        </button>
+        <button className={!isGridView ? "active" : null} onClick={setListView}>
+          <BsList />
+        </button>
+      </div>
+      <p>{products.length} Products Found</p>
+      <hr />
+      <form>
+        <label htmlFor="sort">sort by </label>
+        <select
+          name="sort"
+          id="sort"
+          className="sort-input"
+          value={sort}
+          onChange={updateSort}
+        >
+          <option value="price-ascending">from lowest price to highest</option>
+          <option value="price-descending">from highest price to lowest</option>
+          <option value="name-ascending">from A to Z</option>
+          <option value="name-descending">from Z to A</option>
+        </select>
+      </form>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   display: grid;
@@ -58,7 +95,8 @@ const Wrapper = styled.section`
   }
 
   .sort-input {
-    border-color: transparent;
+    border: 2px solid var(--clr-primary-10);
+    border-radius: var(--radius);
     font-size: 1rem;
     text-transform: capitalize;
     padding: 0.25rem 0.5rem;
@@ -67,6 +105,6 @@ const Wrapper = styled.section`
     font-size: 1rem;
     text-transform: capitalize;
   }
-`
+`;
 
-export default Sort
+export default Sort;
