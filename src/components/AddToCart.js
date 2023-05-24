@@ -30,6 +30,8 @@ const AddToCart = ({ product }) => {
     });
   };
 
+  const { addToCart } = useCartContext();
+
   return (
     <Wrapper>
       <div className="colors">
@@ -59,7 +61,11 @@ const AddToCart = ({ product }) => {
           increase={increase}
           decrease={decrease}
         />
-        <Link to="/cart" className="btn">
+        <Link
+          to="/cart"
+          className="btn"
+          onClick={() => addToCart(id, mainColor, amount, product)}
+        >
           add to cart
         </Link>
       </div>
