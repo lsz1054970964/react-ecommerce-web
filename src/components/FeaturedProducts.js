@@ -13,11 +13,11 @@ const FeaturedProducts = () => {
     products_error,
   } = useProductsContext();
 
-  if (products_loading == true) {
+  if (products_loading === true) {
     return <Loading />;
   }
 
-  if (products_error == true) {
+  if (products_error === true) {
     return <Error />;
   }
 

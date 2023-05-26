@@ -9,38 +9,41 @@ import Cart from "./pages/CartPage";
 import Error from "./pages/ErrorPage";
 import Checkout from "./pages/CheckoutPage";
 import Private from "./pages/PrivateRoute";
+import AuthWrapper from "./pages/AuthWrapper";
 
 import styled from "styled-components";
 import SingleProductPage from "./pages/SingleProductPage";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Sidebar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/about">
-          <About />
-        </Route>
-        <Route exact path="/products">
-          <Products />
-        </Route>
-        <Route exact path="/products/:id" children={<SingleProductPage />} />
-        <Route exact path="/cart">
-          <Cart />
-        </Route>
-        <Route exact path="/checkout">
-          <Checkout />
-        </Route>
-        <Route path="*">
-          <Error />
-        </Route>
-      </Switch>
-      <Footer />
-    </Router>
+    <AuthWrapper>
+      <Router>
+        <Navbar />
+        <Sidebar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/products">
+            <Products />
+          </Route>
+          <Route exact path="/products/:id" children={<SingleProductPage />} />
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Private exact path="/checkout">
+            <Checkout />
+          </Private>
+          <Route path="*">
+            <Error />
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
+    </AuthWrapper>
   );
 }
 
