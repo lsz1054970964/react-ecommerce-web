@@ -21,7 +21,7 @@ const CheckoutForm = () => {
   const navigate = useNavigate();
 
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
@@ -84,7 +84,7 @@ const CheckoutForm = () => {
       setSuccess(true);
       setTimeout(() => {
         clearCart();
-        navigate("./");
+        navigate("/");
       }, 10000);
     }
   };

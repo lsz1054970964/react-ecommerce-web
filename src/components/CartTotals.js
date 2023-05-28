@@ -26,7 +26,7 @@ const CartTotals = () => {
           </h4>
         </article>
         {myUser ? (
-          <Link to="checkout" className="btn">
+          <Link to="/checkout" className="btn">
             to check out
           </Link>
         ) : (
