@@ -18,11 +18,11 @@ function App() {
         <Navbar />
         <Sidebar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="about" element={<About />}></Route>
-          <Route path="products" element={<Products />}></Route>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="products" element={<Products />} />
           <Route path="products/:id" element={<SingleProductPage />} />
-          <Route path="cart" element={<Cart />}></Route>
+          <Route path="cart" element={<Cart />} />
           <Route
             path="checkout"
             element={
@@ -30,8 +30,8 @@ function App() {
                 <Checkout />
               </PrivateRoute>
             }
-          ></Route>
-          <Route path="*" element={<Error />}></Route>
+          />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </Router>
