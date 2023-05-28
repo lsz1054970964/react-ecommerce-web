@@ -4,11 +4,11 @@ import { useAuth0 } from "@auth0/auth0-react";
 const UserContext = React.createContext();
 export const UserProvider = ({ children }) => {
   const {
-    isAuthenticated,
+    // isAuthenticated,
     loginWithRedirect,
     logout,
     user,
-    isLoading,
+    // isLoading,
   } = useAuth0();
 
   const [myUser, setMyUser] = useState(null);
