@@ -6,4 +6,4 @@
 - Used Axios to get product information from API
 - Applied Auth0 for user login and logout
 - Applied Stripe to create and manage payment
-- [Deployment links]()
+- [Deployment links](https://astonishing-sawine-e6cc94.netlify.app/)
